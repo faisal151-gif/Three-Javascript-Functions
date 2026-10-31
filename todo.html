@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Faisal Rahman">
+  <title>To-Do List | CSE 391 Assignment 2</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <!-- ===================== HEADER + NAVIGATION ===================== -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="site-title">CSE 391 &middot; Assignment 2</a>
+      <nav>
+        <ul class="nav-list">
+          <li><a href="index.html">Fortune Generator</a></li>
+          <li><a href="stopwatch.html">Stopwatch</a></li>
+          <li><a href="todo.html" class="active">To-Do List</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===================== MAIN CONTENT ===================== -->
+  <main>
+
+    <section class="page-intro">
+      <p class="card-label">Question 3 &middot; 40 marks</p>
+      <h1>To-Do List</h1>
+      <p>Type a task and press Add (or Enter). Tick the checkbox when it is done, or delete it.
+         Your tasks are saved in the browser's localStorage, so they are still here after a refresh.</p>
+    </section>
+
+    <section class="card todo">
+      <!-- The form: an input field and an Add button -->
+      <form id="task-form" class="task-form">
+        <label for="task-input" class="visually-hidden">New task</label>
+        <input type="text" id="task-input" placeholder="What do you need to do?" maxlength="120" autocomplete="off">
+        <button type="submit" class="btn btn-add">Add Task</button>
+      </form>
+
+      <!-- Shows something like "1 of 3 tasks completed" -->
+      <p id="task-count" class="task-count"></p>
+
+      <!-- JavaScript (js/todo.js) builds one <li> per task inside this list -->
+      <ul id="task-list" class="task-list"></ul>
+
+      <!-- Only visible when there are no tasks -->
+      <p id="empty-message" class="empty-message">No tasks yet. Add one above!</p>
+    </section>
+
+  </main>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer>
+    <p>&copy; 2026 Faisal Rahman &middot; CSE 391: Programming for the Internet &middot; BRAC University</p>
+  </footer>
+
+  <script src="js/todo.js"></script>
+</body>
+</html>
