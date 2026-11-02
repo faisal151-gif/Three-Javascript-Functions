@@ -3,57 +3,31 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="author" content="Faisal Rahman">
-  <title>Stopwatch | CSE 391 Assignment 2</title>
+  <title>Stopwatch</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
 
-  <!-- ===================== HEADER + NAVIGATION ===================== -->
-  <header class="site-header">
-    <div class="header-inner">
-      <a href="index.html" class="site-title">CSE 391 &middot; Assignment 2</a>
-      <nav>
-        <ul class="nav-list">
-          <li><a href="index.html">Fortune Generator</a></li>
-          <li><a href="stopwatch.html" class="active">Stopwatch</a></li>
-          <li><a href="todo.html">To-Do List</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+  <nav>
+    <a href="index.html">Fortune Generator</a>
+    <a href="stopwatch.html">Stopwatch</a>
+    <a href="todo.html">To-Do List</a>
+  </nav>
 
-  <!-- ===================== MAIN CONTENT ===================== -->
   <main>
+    <h1>Stopwatch</h1>
+    <p>Counts in steps of 3 seconds and stops automatically at 30 seconds.</p>
 
-    <section class="page-intro">
-      <p class="card-label">Question 2 &middot; 35 marks</p>
-      <h1>Stopwatch</h1>
-      <p>This stopwatch counts in steps of 3 seconds (3, 6, 9 ...) and stops by itself at 30 seconds.
-         Stop pauses it, Start resumes from the last time shown, and Reset sets it back to 0.</p>
-    </section>
+    <!-- js/stopwatch.js changes the number inside this span -->
+    <p><span id="time-display">0</span> seconds</p>
 
-    <section class="card stopwatch">
-      <!-- JavaScript (js/stopwatch.js) changes the number inside this element -->
-      <div id="time-display" class="time-display">0</div>
-      <p class="time-unit">seconds</p>
-
-      <!-- A short message telling the user what the stopwatch is doing -->
-      <p id="status" class="status">Press Start to begin.</p>
-
-      <div class="controls">
-        <button type="button" id="start-button" class="btn btn-start">Start</button>
-        <button type="button" id="stop-button" class="btn btn-stop">Stop</button>
-        <button type="button" id="reset-button" class="btn btn-reset">Reset</button>
-      </div>
-    </section>
-
+    <button id="start-button">Start</button>
+    <button id="stop-button">Stop</button>
+    <button id="reset-button">Reset</button>
   </main>
 
-  <!-- ===================== FOOTER ===================== -->
   <footer>
-    <p>&copy; 2026 Faisal Rahman &middot; CSE 391: Programming for the Internet &middot; BRAC University</p>
+    <p>&copy; 2026 Faisal Rahman &middot; CSE 391 &middot; BRAC University</p>
   </footer>
 
   <script src="js/stopwatch.js"></script>

@@ -1,9 +1,7 @@
-/* =============================================================
-   fortune.js: Question 1, Fortune Generator
+/* fortune.js: Question 1, Fortune Generator
    1. Store the fortunes in an array
    2. Pick one at random when the page loads and show it in the box
-   3. Four colour buttons change the look of the box
-   ============================================================= */
+   3. Four colour buttons change the look of the box */
 
 
 /* ---- 1. The list of fortunes (an array of strings) ---- */

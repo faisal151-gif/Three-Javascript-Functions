@@ -3,84 +3,44 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="author" content="Faisal Rahman">
-  <title>Fortune Generator | CSE 391 Assignment 2</title>
+  <title>Fortune Generator</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
 
-  <!-- ===================== HEADER + NAVIGATION ===================== -->
-  <header class="site-header">
-    <div class="header-inner">
-      <a href="index.html" class="site-title">CSE 391 &middot; Assignment 2</a>
-      <nav>
-        <ul class="nav-list">
-          <li><a href="index.html" class="active">Fortune Generator</a></li>
-          <li><a href="stopwatch.html">Stopwatch</a></li>
-          <li><a href="todo.html">To-Do List</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+  <nav>
+    <a href="index.html">Fortune Generator</a>
+    <a href="stopwatch.html">Stopwatch</a>
+    <a href="todo.html">To-Do List</a>
+  </nav>
 
-  <!-- ===================== MAIN CONTENT ===================== -->
   <main>
-
-    <section class="page-intro">
-      <h1>JavaScript Programming</h1>
-      <p>Three small interactive web applications built with HTML, CSS and plain JavaScript.
-         Pick one from the menu, or read a quick summary of each below.</p>
-    </section>
-
-    <section class="task-cards">
-      <div class="card">
-        <p class="card-label">Question 1 &middot; 25 marks</p>
-        <h2>Fortune Generator</h2>
-        <p>A random fortune is shown every time this page loads. Four colour buttons restyle the box.</p>
-        <a href="#fortune">See it below &darr;</a>
-      </div>
-      <div class="card">
-        <p class="card-label">Question 2 &middot; 35 marks</p>
-        <h2>Stopwatch</h2>
-        <p>Counts up in steps of 3 seconds and stops by itself at 30 seconds.</p>
-        <a href="stopwatch.html">Open the stopwatch &rarr;</a>
-      </div>
-      <div class="card">
-        <p class="card-label">Question 3 &middot; 40 marks</p>
-        <h2>To-Do List</h2>
-        <p>Add, tick off and delete tasks. They are saved in localStorage, so they survive a refresh.</p>
-        <a href="todo.html">Open the to-do list &rarr;</a>
-      </div>
-    </section>
-
-    <!-- ===== Question 1: the fortune box, placed just above the footer ===== -->
-    <section class="fortune-section" id="fortune">
-      <h2>Your Fortune</h2>
-      <p class="hint">Refresh the page for a new fortune. Click a colour square to change the box.</p>
-
-      <div class="fortune-row">
-        <!-- JavaScript (js/fortune.js) puts the random fortune inside this box -->
-        <div id="fortune-box" class="fortune-box">Loading your fortune...</div>
-
-        <!-- The four colour buttons that sit beside the box -->
-        <div class="color-buttons">
-          <button type="button" id="green-button" class="color-button" title="Green style" aria-label="Green style"></button>
-          <button type="button" id="yellow-button" class="color-button" title="Yellow style" aria-label="Yellow style"></button>
-          <button type="button" id="blue-button" class="color-button" title="Blue style" aria-label="Blue style"></button>
-          <button type="button" id="orange-button" class="color-button" title="Orange style" aria-label="Orange style"></button>
-        </div>
-      </div>
-    </section>
-
+    <h1>Fortune Generator</h1>
+    <p>A random fortune is shown below every time the page loads. Click a coloured square to change the box.</p>
   </main>
 
-  <!-- ===================== FOOTER ===================== -->
+  <!-- Question 1: the fortune box with four buttons beside it, just above the footer -->
+  <div class="fortune-row">
+    <!-- js/fortune.js puts the random fortune inside this box -->
+    <div id="fortune-box">Loading your fortune...</div>
+
+    <!-- The four colour buttons, two per row -->
+    <div>
+      <div>
+        <button id="green-button" class="color-button" title="Green"></button>
+        <button id="yellow-button" class="color-button" title="Yellow"></button>
+      </div>
+      <div>
+        <button id="blue-button" class="color-button" title="Blue"></button>
+        <button id="orange-button" class="color-button" title="Orange"></button>
+      </div>
+    </div>
+  </div>
+
   <footer>
-    <p>&copy; 2026 Faisal Rahman &middot; CSE 391: Programming for the Internet &middot; BRAC University</p>
+    <p>&copy; 2026 Faisal Rahman &middot; CSE 391 &middot; BRAC University</p>
   </footer>
 
-  <!-- The script is loaded last, so every element above already exists when it runs -->
   <script src="js/fortune.js"></script>
 </body>
 </html>

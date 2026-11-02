@@ -1,263 +1,73 @@
-/* =============================================================
-   style.css: external stylesheet shared by all three pages
-   CSE 391 / Assignment 2 / JavaScript Programming
-   ============================================================= */
+/* style.css: one stylesheet shared by all three pages */
 
-/* ---------- 1. Colours used across the site ---------- */
-:root {
-  --bg: #f4f6fb;          /* light page background */
-  --surface: #ffffff;
-  --text: #1b2232;
-  --muted: #586276;
-  --accent: #2d5bd1;
-  --accent-dark: #1c429f;
-  --border: #d6dbe7;
-  --header-bg: #1c3f9e;
-  --footer-bg: #141b2b;
-  --green: #1d7f53;
-  --red: #c0392b;
-  --grey: #586276;
-  --shadow: 0 8px 24px rgba(27, 34, 50, 0.08);
-}
-
-/* ---------- 2. Base ---------- */
-* {
-  box-sizing: border-box;
-}
-
-/* The body is a column: header, main, footer.
-   main grows to fill the space, which keeps the footer at the bottom. */
+/* Page is a column: nav, main, (fortune box), footer.
+   main grows to fill the empty space, which pushes the footer to the bottom. */
 body {
   margin: 0;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background-color: var(--bg);
-  color: var(--text);
-  font-family: "Segoe UI", Arial, sans-serif;
-  font-size: 16px;
-  line-height: 1.6;
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
 }
 
-h1, h2 {
-  font-family: Georgia, "Times New Roman", serif;
-  line-height: 1.2;
-  margin: 0 0 0.5em;
-}
-
-h1 {
-  font-size: 2.2em;
-}
-
-h2 {
-  font-size: 1.4em;
-}
-
-a {
-  color: var(--accent);
-  font-weight: 600;
-}
-
-a:hover {
-  color: var(--accent-dark);
-}
-
-/* Hides a label visually but keeps it for screen readers */
-.visually-hidden {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-  clip: rect(0 0 0 0);
-  white-space: nowrap;
-}
-
-/* ---------- 3. Header and navigation ---------- */
-.site-header {
-  background-color: var(--header-bg);
-}
-
-.header-inner {
-  max-width: 960px;
-  margin: 0 auto;
-  padding: 14px 20px;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 10px;
-}
-
-.site-title {
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 1.25em;
-  color: #ffffff;
-  text-decoration: none;
-}
-
-.site-title:hover {
-  color: #ffffff;
-}
-
-.nav-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-}
-
-.nav-list a {
-  display: block;
-  padding: 6px 14px;
-  border-radius: 999px;
-  color: #dfe7ff;
-  text-decoration: none;
-}
-
-.nav-list a:hover {
-  background-color: rgba(255, 255, 255, 0.15);
-  color: #ffffff;
-}
-
-/* The link of the page you are on */
-.nav-list a.active {
-  background-color: #ffffff;
-  color: var(--header-bg);
-}
-
-/* ---------- 4. Main content ---------- */
 main {
   flex: 1;
-  width: 100%;
-  max-width: 960px;
-  margin: 0 auto;
-  padding: 36px 20px;
-  display: flex;
-  flex-direction: column;
-}
-
-.page-intro {
-  margin-bottom: 28px;
-}
-
-.page-intro p {
-  max-width: 660px;
-  color: var(--muted);
-}
-
-/* Small "Question 1 · 25 marks" label above a heading */
-.page-intro .card-label,
-.card .card-label {
-  margin: 0 0 6px;
-  font-size: 0.8em;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--accent);
-}
-
-.card {
-  background-color: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 24px;
-  box-shadow: var(--shadow);
-}
-
-.card p {
-  color: var(--muted);
-}
-
-/* Three summary cards on the home page */
-.task-cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 18px;
-}
-
-/* ---------- 5. Buttons ---------- */
-.btn {
-  padding: 10px 22px;
-  border: none;
-  border-radius: 8px;
-  font: inherit;
-  font-weight: 600;
-  color: #ffffff;
-  cursor: pointer;
-}
-
-.btn:hover {
-  filter: brightness(1.12);
-}
-
-.btn:focus-visible,
-.color-button:focus-visible {
-  outline: 3px solid var(--text);
-  outline-offset: 2px;
-}
-
-.btn-start  { background-color: var(--green); }
-.btn-stop   { background-color: var(--red); }
-.btn-reset  { background-color: var(--grey); }
-.btn-add    { background-color: var(--accent); }
-
-/* ---------- 6. Question 1: Fortune Generator ---------- */
-
-/* margin-top: auto pushes this section down so it sits just above the footer */
-.fortune-section {
-  margin-top: auto;
-  padding-top: 48px;
+  padding: 20px;
   text-align: center;
 }
 
-.hint {
-  margin: 0 0 18px;
-  color: var(--muted);
+/* ---------- Navigation and footer ---------- */
+nav {
+  background-color: #333333;
+  padding: 15px;
+  text-align: center;
 }
 
-/* The box and the buttons side by side, centred */
+nav a {
+  color: white;
+  margin: 0 10px;
+  text-decoration: none;
+}
+
+footer {
+  background-color: #333333;
+  color: white;
+  text-align: center;
+  padding: 10px;
+}
+
+button {
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+/* ---------- Question 1: Fortune Generator ---------- */
+
+/* Fortune box and colour buttons side by side, centred */
 .fortune-row {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-wrap: wrap;
-  gap: 16px;
+  gap: 10px;
+  padding: 20px;
 }
 
-/* Starting look of the box; the colour buttons change it from JavaScript */
-.fortune-box {
-  flex: 0 1 560px;
-  padding: 20px 26px;
-  border: 4px solid var(--accent);
-  border-radius: 6px;
-  background-color: #ffffff;
-  color: var(--text);
-  font-family: "Segoe UI", Arial, sans-serif;
+/* Starting look of the box (JavaScript changes it when a colour button is clicked) */
+#fortune-box {
+  padding: 15px 20px;
+  border: 3px solid #538135;
+  background-color: #fff2cc;
+  color: #c00000;
   font-size: 18px;
-  transition: color 0.3s, background-color 0.3s, border-color 0.3s, font-size 0.3s;
-}
-
-/* The four colour squares in a 2 x 2 grid */
-.color-buttons {
-  display: grid;
-  grid-template-columns: repeat(2, 44px);
-  gap: 8px;
 }
 
 .color-button {
-  width: 44px;
-  height: 44px;
-  border: 3px solid #ffffff;
-  border-radius: 8px;
-  box-shadow: 0 0 0 1px var(--border), 0 2px 6px rgba(0, 0, 0, 0.12);
-  cursor: pointer;
-  transition: transform 0.15s;
-}
-
-.color-button:hover {
-  transform: scale(1.1);
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: none;
+  margin: 2px;
 }
 
 #green-button  { background-color: #6aa84f; }
@@ -265,155 +75,33 @@ main {
 #blue-button   { background-color: #5b9bd5; }
 #orange-button { background-color: #ed7d31; }
 
-/* ---------- 7. Question 2: Stopwatch ---------- */
-.stopwatch {
-  width: 100%;
-  max-width: 440px;
-  margin: 0 auto;
-  text-align: center;
+/* ---------- Question 2: Stopwatch ---------- */
+#time-display {
+  font-size: 60px;
+  font-weight: bold;
 }
 
-.time-display {
-  font-family: Consolas, "Courier New", monospace;
-  font-size: 96px;
-  font-weight: 700;
-  line-height: 1;
-  color: var(--accent-dark);
+/* ---------- Question 3: To-Do List ---------- */
+#task-input {
+  padding: 8px;
+  width: 250px;
 }
 
-.time-unit {
-  margin: 4px 0 0;
-  font-size: 0.85em;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
-
-.status {
-  min-height: 1.6em;
-  margin: 18px 0;
-}
-
-.controls {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-/* ---------- 8. Question 3: To-Do List ---------- */
-.todo {
-  width: 100%;
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-.task-form {
-  display: flex;
-  gap: 8px;
-}
-
-.task-form input {
-  flex: 1;
-  min-width: 0;
-  padding: 10px 12px;
-  border: 2px solid var(--border);
-  border-radius: 8px;
-  font: inherit;
-}
-
-.task-form input:focus {
-  outline: none;
-  border-color: var(--accent);
-}
-
-.task-count {
-  margin: 16px 0 8px;
-  font-size: 0.9em;
-}
-
-.task-list {
+#task-list {
   list-style: none;
-  margin: 0;
   padding: 0;
 }
 
-.task-list li {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 8px;
-  padding: 10px 12px;
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  background-color: var(--surface);
+#task-list li {
+  margin: 10px 0;
 }
 
-.task-list label {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  cursor: pointer;
-  overflow-wrap: anywhere;
+#task-list span {
+  margin: 0 10px;
 }
 
-.task-list input[type="checkbox"] {
-  width: 18px;
-  height: 18px;
-  flex-shrink: 0;
-  accent-color: var(--green);
-  cursor: pointer;
-}
-
-/* A completed task: crossed out and faded */
-.task-list li.completed span {
+/* A completed task is crossed out */
+.done {
   text-decoration: line-through;
-  color: var(--muted);
-}
-
-.btn-delete {
-  padding: 4px 12px;
-  border: 1px solid var(--red);
-  background-color: transparent;
-  color: var(--red);
-  font-size: 0.9em;
-}
-
-.btn-delete:hover {
-  background-color: var(--red);
-  color: #ffffff;
-  filter: none;
-}
-
-.empty-message {
-  margin: 8px 0 0;
-  padding: 20px;
-  border: 2px dashed var(--border);
-  border-radius: 8px;
-  text-align: center;
-}
-
-/* ---------- 9. Footer ---------- */
-footer {
-  background-color: var(--footer-bg);
-  color: #c9d1e3;
-  text-align: center;
-  padding: 6px 20px;
-  font-size: 0.9em;
-}
-
-/* ---------- 10. Small screens ---------- */
-@media (max-width: 600px) {
-  h1 {
-    font-size: 1.8em;
-  }
-
-  /* Put the four colour squares in one row under the box */
-  .color-buttons {
-    grid-template-columns: repeat(4, 44px);
-  }
-
-  .time-display {
-    font-size: 72px;
-  }
+  color: gray;
 }

@@ -1,95 +1,49 @@
-/* =============================================================
-   stopwatch.js: Question 2, Stopwatch
-   - Counts in steps of 3 seconds: 0, 3, 6, 9 ... 30
-   - Stops by itself at 30 seconds (only Reset can start it over)
-   - Stop pauses it; Start resumes from the last time shown
-   ============================================================= */
+/* stopwatch.js: Question 2, Stopwatch
+   Counts 0, 3, 6, 9 ... and stops automatically at 30 seconds.
+   Stop pauses it, Start resumes from the last value, Reset goes back to 0. */
 
+let seconds = 0;   // the time shown on the page
+let timer = null;  // the id that setInterval gives back; null means "not running"
 
-/* ---- 1. Settings that never change (const = cannot be reassigned) ---- */
-const STEP = 3;    // seconds added on every tick
-const LIMIT = 30;  // the stopwatch stops automatically at this value
-
-
-/* ---- 2. Values that change while the page is open (let = can be reassigned) ---- */
-let seconds = 0;      // the time currently shown on the display
-let timerId = null;   // the id that setInterval gives back; null means "not running"
-
-
-/* ---- 3. Find the HTML elements we need ---- */
 const display = document.getElementById("time-display");
-const statusText = document.getElementById("status");
-const startButton = document.getElementById("start-button");
-const stopButton = document.getElementById("stop-button");
-const resetButton = document.getElementById("reset-button");
 
 
-/* ---- 4. Small helper functions ---- */
-
-// Show the current value of "seconds" on the page
-function updateDisplay() {
-  display.textContent = seconds;
-}
-
-// Cancel the repeating timer so tick() is no longer called
-function clearTimer() {
-  clearInterval(timerId);
-  timerId = null;
-}
-
-// setInterval runs this every 3 seconds while the stopwatch is running
+// setInterval calls this every 3 seconds while the stopwatch is running
 function tick() {
-  seconds = seconds + STEP;
-  updateDisplay();
+  seconds = seconds + 3;
+  display.textContent = seconds;
 
-  // Reached the limit: stop automatically
-  if (seconds >= LIMIT) {
-    clearTimer();
-    statusText.textContent = "Reached 30 seconds. Press Reset to start again.";
+  // Reached 30: stop automatically
+  if (seconds >= 30) {
+    stopTimer();
   }
 }
-
-
-/* ---- 5. What each button does ---- */
 
 function startTimer() {
-  // Already running? Ignore the click, otherwise a second timer would start
-  // and the stopwatch would count twice as fast.
-  if (timerId !== null) {
-    return;
-  }
-
-  // Already at 30? The stopwatch must be reset first.
-  if (seconds >= LIMIT) {
-    statusText.textContent = "Already at 30 seconds. Press Reset first.";
+  // Do nothing if it is already running (otherwise two timers would run and it would count twice as fast)
+  // or if it is already at 30 (the user must press Reset first)
+  if (timer !== null || seconds >= 30) {
     return;
   }
 
   // Call tick() every 3000 milliseconds (3 seconds).
-  // "seconds" keeps its old value, so after a pause it resumes from there.
-  timerId = setInterval(tick, STEP * 1000);
-  statusText.textContent = "Running...";
+  // "seconds" keeps its old value, so after Stop it resumes from there.
+  timer = setInterval(tick, 3000);
 }
 
 function stopTimer() {
-  // Nothing to stop if it is not running
-  if (timerId === null) {
-    return;
-  }
-
-  clearTimer();
-  statusText.textContent = "Paused at " + seconds + " seconds. Press Start to resume.";
+  clearInterval(timer);  // stop calling tick()
+  timer = null;
 }
 
 function resetTimer() {
-  clearTimer();
+  stopTimer();
   seconds = 0;
-  updateDisplay();
-  statusText.textContent = "Reset to 0. Press Start to begin.";
+  display.textContent = seconds;
 }
 
 
-/* ---- 6. Connect the buttons to their functions ---- */
-startButton.addEventListener("click", startTimer);
-stopButton.addEventListener("click", stopTimer);
-resetButton.addEventListener("click", resetTimer);
+// Connect each button to its function
+document.getElementById("start-button").addEventListener("click", startTimer);
+document.getElementById("stop-button").addEventListener("click", stopTimer);
+document.getElementById("reset-button").addEventListener("click", resetTimer);
